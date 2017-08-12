@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Welcome {{ loginUser }} </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<div id="chat-messages">
+  <div *ngFor="let message of messages" [class]="message.specialMessage ? 'message special' : ' '">
+    <div [class]="message.loginUser ==  loginUser ? 'inner-message messageRight' : 'inner-message messageLeft' ">
+      <div class="loginUser">{{ message.loginUser }}</div>
+      <div class="message">{{ message.message }}</div>
+    </div>
+  </div>
+</div>
+
+</ion-content>
+
+<ion-footer>
+    <div id="footer">
+
+      <div class="element">
+        <ion-input type="text" [(ngModel)]="message" placeholder="Type..."></ion-input>
+      </div>
+      <div class ="element">
+         <button ion-button icon-only (click)="sendMessage()"><ion-icon name="send"></ion-icon></button>
+       </div>
+
+    </div>
+
+</ion-footer>
